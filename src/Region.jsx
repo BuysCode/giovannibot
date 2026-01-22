@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { Send, Sparkles, Home } from 'lucide-react';
 import './region.css';
 import { generateResponse } from './services/deepSeekService';
+import { generateResponse } from './controllers/DeepSeekController';
 
 function ChatMessage({ message }) {
   const isUser = message.role === 'user';
