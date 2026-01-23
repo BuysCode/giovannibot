@@ -51,7 +51,7 @@ export default function LandingPage() {
             <div className="logo-icon">
               <Sparkles size={20} />
             </div>
-            <span className="logo-text">Guida Italiana</span>
+            <span className="logo-text">Giovanni Bot</span>
           </div>
 
           <button onClick={() => navigate('/map')} className="header-cta-btn">
@@ -181,10 +181,10 @@ export default function LandingPage() {
           <div className="footer-logo-icon">
             <Sparkles size={16} />
           </div>
-          <span className="footer-logo-text">Guida Italiana</span>
+          <span className="footer-logo-text">Giovanni Bot</span>
         </div>
         <p className="footer-text">
-          © 2026 Guida Italiana. Descubra a Itália de forma interativa.
+          © 2026 Giovanni Bot. Descubra a Itália de forma interativa.
         </p>
       </footer>
     </div>

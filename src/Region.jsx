@@ -2,7 +2,6 @@ import { useState, useRef, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Send, Sparkles, Home } from 'lucide-react';
 import './region.css';
-import { generateResponse } from './services/deepSeekService';
 import { generateResponse } from './controllers/DeepSeekController';
 
 function ChatMessage({ message }) {
@@ -16,8 +15,8 @@ function ChatMessage({ message }) {
             <Sparkles size={20} />
           </div>
         )}
-        <div className="message-content">
-          {!isUser && <div className="message-label">Guida Italiana</div>}
+        <div className={`message-content ${!isUser ? 'message-bot-background' : ''}`}>
+          {!isUser && <div className="message-label">Giovanni Bot</div>}
           {isUser && <div className="message-label-user">Tu</div>}
           <div className="message-text">{message.content}</div>
         </div>
@@ -128,7 +127,7 @@ export default function ItalianChatbot() {
           <div className="gemini-header-left">
             <Sparkles size={24} className="gemini-logo-icon" />
             <div className="gemini-header-text">
-              <h1 className="gemini-title">Guida Italiana</h1>
+              <h1 className="gemini-title">Giovanni Bot</h1>
               <p className="gemini-subtitle">{currentRegion}</p>
             </div>
           </div>
@@ -147,11 +146,11 @@ export default function ItalianChatbot() {
             </div>
             
             <h2 className="gemini-welcome-title">
-              Benvenuto in {currentRegion}
+              Bem-vindo a {currentRegion}
             </h2>
             
             <p className="gemini-welcome-text">
-              Cosa vorresti sapere oggi?
+              O que você deseja saber sobre {currentRegion} hoje?
             </p>
 
             <div className="gemini-prompts-grid">
@@ -180,7 +179,7 @@ export default function ItalianChatbot() {
                     <Sparkles size={20} />
                   </div>
                   <div className="message-content">
-                    <div className="message-label">Guida Italiana</div>
+                    <div className="message-label">Giovanni Bot</div>
                     <div className="typing-dots">
                       <span></span>
                       <span></span>
