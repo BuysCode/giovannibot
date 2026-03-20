@@ -2,7 +2,8 @@ import { useState, useRef, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Send, Sparkles, Home } from 'lucide-react';
 import './region.css';
-import { generateResponse } from './controllers/DeepSeekController';
+import { generateResponse } from './functions';
+import Header from './components/Header';
 
 function ChatMessage({ message }) {
   const isUser = message.role === 'user';
@@ -67,7 +68,6 @@ export default function ItalianChatbot() {
     setInputMessage('');
     setIsLoading(true);
 
-    // Reset textarea height
     if (textareaRef.current) {
       textareaRef.current.style.height = 'auto';
     }
@@ -121,23 +121,8 @@ export default function ItalianChatbot() {
 
   return (
     <div className="gemini-container">
-      {/* Header minimalista */}
-      <header className="gemini-header">
-        <div className="gemini-header-content">
-          <div className="gemini-header-left">
-            <Sparkles size={24} className="gemini-logo-icon" />
-            <div className="gemini-header-text">
-              <h1 className="gemini-title">Giovanni Bot</h1>
-              <p className="gemini-subtitle">{currentRegion}</p>
-            </div>
-          </div>
-          <button onClick={() => navigate('/')} className="gemini-home-btn">
-            <Home size={20} />
-          </button>
-        </div>
-      </header>
+      <Header currentRegion={currentRegion} />
 
-      {/* Main content */}
       <main className="gemini-main">
         {messages.length === 0 ? (
           <div className="gemini-welcome">
@@ -195,7 +180,6 @@ export default function ItalianChatbot() {
         )}
       </main>
 
-      {/* Input fixo no bottom */}
       <div className="gemini-input-wrapper">
         <div className="gemini-input-container">
           <div className="gemini-input-box">
